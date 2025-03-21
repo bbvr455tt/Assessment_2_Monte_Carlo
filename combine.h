@@ -1,7 +1,8 @@
 #ifndef COMBINE_H
 #define COMBINE_H
 #include <vector> 
-#include "atom.h" 
+#include "atom.h"
+#include "montecarlo.h" 
 
 class Combine {
 public:
