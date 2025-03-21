@@ -22,4 +22,13 @@ void Combine::randomise_energy_step(double beta) {
     }
 }
 
+double Combine::calculate_total_energy() const {
+    double total_energy = 0.0;
+    for (size_t i = 0; i < atoms.size(); i=i+1) {
+        int spin_left = atoms[(i - 1 + atoms.size()) % atoms.size()].current_spin();
+        int spin_right = atoms[(i + 1) % atoms.size()].current_spin();
+        total_energy = total_energy - (interaction_energy * atoms[i].current_spin() * (spin_left + spin_right));
+    }
+    return total_energy;
+}
 
