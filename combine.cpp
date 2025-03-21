@@ -32,3 +32,10 @@ double Combine::calculate_total_energy() const {
     return total_energy;
 }
 
+int Combine::magnetization_calculation() const {
+    int total_magnetization = 0;
+    for (int i = 0; i < atoms.size(); i=i+1) {
+        total_magnetization = total_magnetization + atoms[i].current_spin();
+    }
+    return total_magnetization;
+}
