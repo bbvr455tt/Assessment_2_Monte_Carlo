@@ -16,4 +16,10 @@ void Combine::randomise_energy_step(double beta) {
     int new_spin = atoms[index].current_spin();
     double energy_change = 2 * interaction_energy * new_spin * (spin_left + spin_right);
 
+
+    if (energy_change < 0 || (rand() / (double)RAND_MAX) < exp(-beta * energy_change)) {
+        atoms[index].flip_spin(); 
+    }
 }
+
+
