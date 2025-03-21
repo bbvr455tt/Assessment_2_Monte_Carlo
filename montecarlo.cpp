@@ -9,3 +9,11 @@ void Montecarlo::run_simulation(int num_steps) {
         combine.randomise_energy_step(beta); 
     }
 }
+
+double Montecarlo::get_current_energy() const {
+    return combine.calculate_total_energy();
+}
+
+int Montecarlo::get_current_magnetization() const {
+    return combine.magnetization_calculation();
+}
