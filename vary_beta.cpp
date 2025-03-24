@@ -9,7 +9,7 @@ varybeta::varybeta(int number_atoms, int num_steps, int num_configurations, cons
       num_steps(num_steps)
       num_configurations(num_configurations) {}
 
-void vary_beta::run(const std::string& output_filename) {
+void vary_beta::run_all_betas(const std::string& "1d_vary_beta") {
     std::ofstream data_file_2(vary_beta_1D);
     data_file_2 << "beta,avg_energy,avg_magnetization\n";
     
