@@ -1,4 +1,4 @@
-#include "monte_carlo.h"
+#include "montecarlo.h"
 #include <iostream>
 
 Montecarlo::Montecarlo(int number_atoms, double beta) 

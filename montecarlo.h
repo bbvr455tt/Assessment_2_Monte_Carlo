@@ -1,5 +1,5 @@
-#ifndef MONTE_CARLO_H
-#define MONTE_CARLO_H
+#ifndef MONTECARLO_H
+#define MONTECARLO_H
 #include "combine.h"
 #include "atom.h"
 
