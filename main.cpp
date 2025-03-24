@@ -23,11 +23,6 @@ int main() {
  
         data_file << full_sim.get_current_energy() << ","
                   << full_sim.get_current_magnetization() << "\n";
-<<<<<<< HEAD
-
-=======
- 
->>>>>>> data_analysis
     }
               
     data_file.close();
