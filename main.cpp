@@ -1,6 +1,7 @@
 #include "montecarlo.h"
 #include "combine.h"      
-#include <cstdlib>       
+#include <cstdlib>
+#include <fstream>       
 #include <time.h>
 #include <iostream>      
 
@@ -8,16 +9,24 @@ int main() {
     
     srand(time(0));
 
-    int number_atoms = 100; 
-    double beta = 1.0;      
-    int num_steps = 10000;      
+    const int number_atoms = 100; 
+    const double beta = 1.0;      
+    const int num_steps = 10000; 
+    const int num_configurations = 2000;   
+    
+    std::ofstream data_file("constant_beta_1D.csv");
+    data_file << "energy,magnetization\n";
 
-     Montecarlo full_sim(number_atoms, beta);
-
-     full_sim.run_simulation(num_steps);
+    for (int i=0; i < num_configurations; i = i+1) {
+        Montecarlo full_sim(number_atoms, beta);
+        full_sim.run_simulation(num_steps);
  
-     std::cout << "Energy: " << full_sim.get_current_energy() << std::endl;
-     std::cout << "Magnetization: " << full_sim.get_current_magnetization() << std::endl;
+        data_file << full_sim.get_current_energy() << ","
+                  << full_sim.get_current_magnetization() << "std::endl";
  
-     return 0;
- }
+    }
+              
+    data_file.close();
+    return 0;
+ 
+}
