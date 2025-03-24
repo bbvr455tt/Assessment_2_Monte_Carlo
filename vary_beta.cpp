@@ -1,4 +1,4 @@
-#include vary_beta.h
+#include "vary_beta.h"
 #include <fstream>
 #include <iostream>
 #include <cmath>
@@ -16,5 +16,12 @@ void vary_beta::run(const std::string& output_filename) {
     for (double beta : beta_values) {
         double total_energy = 0.0;
         double total_magnetization = 0.0;
+        
+        for (int i = 0; i < num_configurations; i=i+1) {
+            Montecarlo full_sim(number_atoms, beta);  
+            full_sim.run_simulation(num_steps);       
+
+            total_energy = total_energy + full_sim.get_current_energy();
+            total_magnetization = total_magnetization + std::abs(full_sim.get_current_magnetization());
         }
 }
