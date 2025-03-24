@@ -11,7 +11,7 @@ varybeta::varybeta(int number_atoms, int num_steps, int num_configurations, cons
 
 void vary_beta::run(const std::string& output_filename) {
     std::ofstream data_file_2(vary_beta_1D);
-    data_file << "beta,avg_energy,avg_magnetization\n";
+    data_file_2 << "beta,avg_energy,avg_magnetization\n";
     
     for (double beta : beta_values) {
         double total_energy = 0.0;
@@ -24,4 +24,12 @@ void vary_beta::run(const std::string& output_filename) {
             total_energy = total_energy + full_sim.get_current_energy();
             total_magnetization = total_magnetization + std::abs(full_sim.get_current_magnetization());
         }
+
+        double average_energy = total_energy / num_configurations;
+        double average_magnetization = total_magnetization / num_configurations;
+        
+        data_file_2 << beta << "," << avergae_energy << "," << average_magnetization << "\n";
+
+    }
+    data_file_2.close()
 }
