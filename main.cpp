@@ -44,7 +44,7 @@ int main() {
     const int steps_2d = 10000;
     
     std::ofstream data_file_2d("2d_vary_beta.csv");
-    data_file_2d << "beta,energy,magnetization\n"
+    data_file_2d << "beta,energy,magnetization\n";
 
     for (double beta=0.1; beta <= 2.0; beta = beta + 0.1) {
         model_2d beta_model_2d(grid_dimensions, beta);
