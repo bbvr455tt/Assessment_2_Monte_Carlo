@@ -27,7 +27,6 @@ void 2d_model::random_grid() {
     }
 }
 
-        
 
 void 2d_model::monte_carlo_step() {
     int x = rand() % size;
@@ -66,4 +65,18 @@ double 2d_model::calculate_average_magnetization() const {
     double average_magnetization = total_magnetization / overall_spins;
     
     return average_magnetization;
+}
+
+void 2d_model::simulate_grid(int num_steps, const std::string& file_name) {
+    std::ofstream file(file_name);
+    file << "beta,energy,magnetization\n";
+
+    randomize_grid();
+    for (int step = 0; step < num_steps; step = step + 1) {
+        monte_carlo_step();
+        if (step % 1000 == 0) { 
+            file << beta << "," << calculate_energy() << "," << calculate_magnetization() << "\n";
+        }
+    }
+    file.close();
 }
