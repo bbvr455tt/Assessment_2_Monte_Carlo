@@ -2,6 +2,7 @@
 #include "combine.h"
 #include "vary_beta.h" 
 #include "atom.h"     
+#include "2d_model.h"
 #include <cstdlib>
 #include <fstream>       
 #include <time.h>
@@ -37,6 +38,13 @@ int main() {
 
     vary_beta vary_beta(number_atoms, beta_values, num_steps, num_configurations);
     vary_beta.run_all_betas("1d_vary_beta.csv");
+
+
+    const int grid_size = 100;
+    const int 2d_steps = 10000;
+    
+    std::ofstream data_file_2d("2d_vary_beta.csv")
+    data_file_2d << "beta,energy,magnetization\n"
 
     return 0;
  
