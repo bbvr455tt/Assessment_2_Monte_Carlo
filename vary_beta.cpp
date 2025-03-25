@@ -32,4 +32,8 @@ void vary_beta::run_all_betas(const std::string& "1d_vary_beta") {
 
     }
     data_file_2.close()
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> vary_beta
