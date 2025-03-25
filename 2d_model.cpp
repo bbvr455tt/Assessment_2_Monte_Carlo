@@ -41,3 +41,29 @@ void 2d_model::monte_carlo_step() {
     int spin = grid[x][y];
     double energy_change = 2 * spin * (left + right + above + below);
 }
+
+double 2d_model::calculate_energy() const {
+    double energy = 0.0;
+    for (int row = 0; row < size; row = row + 1) {
+        for (int col = 0; col < size; col = col + 1) {
+            energy = energy - (grid[row][col] * (grid[row][(col+1)%size] + grid[(row+1)%size][col]));
+        }
+    }
+    return energy;
+}
+
+double 2d_model::calculate_average_magnetization() const {
+    double total_magnetization = 0.0;
+    
+    for (int row = 0; row < size; row = row + 1) {
+        for (int col = 0; col < size; col = col + 1) {
+            
+            total_magnetization = total_magnetization + grid[row][col];
+        }
+    }
+ 
+    double overall_spins = size * size;
+    double average_magnetization = total_magnetization / overall_spins;
+    
+    return average_magnetization;
+}
