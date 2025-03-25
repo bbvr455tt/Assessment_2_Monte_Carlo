@@ -3,7 +3,7 @@
 #include <cmath>
 #include <cstdlib>
 
-2d_model::2d_model(int grid_dimensions, double beta) 
+model_2d::model_2d(int grid_dimensions, double beta) 
     : size(grid_dimensions), 
       beta(beta)        
 {        
@@ -13,7 +13,7 @@
     }
 }
 
-void 2d_model::random_grid() {
+void model_2d::random_grid() {
     for (int row = 0; row < size; row = row + 1) {
         for (int col = 0; col < size; col = col +1) {
             int rand_val = rand() % 2;
@@ -28,7 +28,7 @@ void 2d_model::random_grid() {
 }
 
 
-void 2d_model::monte_carlo_step() {
+void model_2d::monte_carlo_step() {
     int x = rand() % size;
     int y = rand() % size;
 
@@ -41,7 +41,7 @@ void 2d_model::monte_carlo_step() {
     double energy_change = 2 * spin * (left + right + above + below);
 }
 
-double 2d_model::calculate_energy() const {
+double model_2d::calculate_energy() const {
     double energy = 0.0;
     for (int row = 0; row < size; row = row + 1) {
         for (int col = 0; col < size; col = col + 1) {
@@ -51,7 +51,7 @@ double 2d_model::calculate_energy() const {
     return energy;
 }
 
-double 2d_model::calculate_average_magnetization() const {
+double model_2d::calculate_average_magnetization() const {
     double total_magnetization = 0.0;
     
     for (int row = 0; row < size; row = row + 1) {
@@ -67,7 +67,7 @@ double 2d_model::calculate_average_magnetization() const {
     return average_magnetization;
 }
 
-void 2d_model::simulate_grid(int num_steps, const std::string& file_name) {
+void model_2d::simulate_grid(int num_steps, const std::string& file_name) {
     std::ofstream file(file_name);
     file << "beta,energy,magnetization\n";
 

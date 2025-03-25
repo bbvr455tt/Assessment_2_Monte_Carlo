@@ -1,12 +1,12 @@
 #ifndef TWOD_MODEL_H  
 #define TWOD_MODEL_H
-#include montecarlo.h
-#include vary_beta.h
-#include combine.h
+#include "montecarlo.h"
+#include "vary_beta.h"
+#include "combine.h"
 #include <vector>
 #include <string>
 
-class 2d_model {
+class model_2d {
 
 private:
     std::vector<std::vector<int>> grid;
@@ -15,7 +15,7 @@ private:
     
 
 public:
-    2d_model(int grid_dimensions, double beta);
+    model_2d(int grid_dimensions, double beta);
     void random_grid();
     double calculate_average_magnetization() const;
     void monte_carlo_step();
