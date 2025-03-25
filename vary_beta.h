@@ -9,11 +9,7 @@ class vary_beta {
 
 private:
     int number_atoms;
-<<<<<<< HEAD
     std::vector<double> beta_values;
-=======
-    std::vector<ouble> beta_values;
->>>>>>> vary_beta
     int num_configurations
     int num_steps
 
