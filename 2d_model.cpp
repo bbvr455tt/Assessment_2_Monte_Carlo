@@ -13,6 +13,22 @@
     }
 }
 
+void 2d_model::random_grid() {
+    for (int row = 0; row < size; row = row + 1) {
+        for (int col = 0; col < size; col = col +1) {
+            int rand_val = rand() % 2;
+
+            if (rand_val == 0) {
+                grid[row][col] = -1;
+            } else {
+                grid[row][col] = 1;
+            }
+        }
+    }
+}
+
+        
+
 void 2d_model::monte_carlo_step() {
     int x = rand() % size;
     int y = rand() % size;
