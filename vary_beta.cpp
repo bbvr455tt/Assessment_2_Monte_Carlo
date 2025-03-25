@@ -3,14 +3,14 @@
 #include <iostream>
 #include <cmath>
 
-vary_beta::vary_beta(int number_atoms, int num_steps, int num_configurations, const std::vector<double>& beta_values)
+vary_beta::vary_beta(int number_atoms, const std::vector<double>& beta_values, int num_steps, int num_configurations)
     : number_atoms(number_atoms),
       beta_values(beta_values)
       num_steps(num_steps)
       num_configurations(num_configurations) {}
 
 void vary_beta::run_all_betas(const std::string& file_name) {
-    std::ofstream data_file_2(vary_beta);
+    std::ofstream data_file_2(file_name);
     data_file_2 << "beta,avg_energy,avg_magnetization\n";
     
     for (double beta : beta_values) {
