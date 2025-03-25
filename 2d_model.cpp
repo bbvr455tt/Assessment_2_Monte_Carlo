@@ -71,11 +71,11 @@ void model_2d::simulate_grid(int num_steps, const std::string& file_name) {
     std::ofstream file(file_name);
     file << "beta,energy,magnetization\n";
 
-    randomize_grid();
+    random_grid();
     for (int step = 0; step < num_steps; step = step + 1) {
         monte_carlo_step();
         if (step % 1000 == 0) { 
-            file << beta << "," << calculate_energy() << "," << calculate_magnetization() << "\n";
+            file << beta << "," << calculate_energy() << "," << calculate_average_magnetization() << "\n";
         }
     }
     file.close();
