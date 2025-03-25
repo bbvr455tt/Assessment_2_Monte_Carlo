@@ -40,11 +40,22 @@ int main() {
     vary_beta.run_all_betas("1d_vary_beta.csv");
 
 
-    const int grid_size = 100;
+    const int grid_dimensions = 100;
     const int 2d_steps = 10000;
     
     std::ofstream data_file_2d("2d_vary_beta.csv")
     data_file_2d << "beta,energy,magnetization\n"
+
+    for (double beta=0.1; beta <= 2; beta = beta + 0.1) {
+        2d_model beta_model_2d(grid_dimensions, beta);
+        beta_model_2d.random_grid();
+
+        for (int step = 0; step < 2d_steps; step = step + 1) {
+            beta_model_2d.monte_carlo_step();
+            data_file_2d << beta << "," << beta_model_2d.calculate_energy() << "," << beta_model_2d.calculate_average_magnetization() << "\n";
+        }
+    }
+    data_file_2d.close();
 
     return 0;
  
