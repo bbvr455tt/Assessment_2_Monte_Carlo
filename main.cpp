@@ -39,8 +39,14 @@ int main() {
     vary_beta.run_all_betas("1d_vary_beta.csv");
 
     const int grid_dimensions = 100;
+<<<<<<< HEAD
     const int steps_2d = 100;
 
+=======
+    const int stab_steps = 2000;
+    const int steps_2d = 10000;
+    
+>>>>>>> 2d_model
     std::ofstream data_file_2d("2d_vary_beta.csv");
     data_file_2d << "beta,energy,magnetization\n";
 
@@ -48,11 +54,23 @@ int main() {
         model_2d beta_model_2d(grid_dimensions, beta);
         beta_model_2d.random_grid();
 
-        for (int step = 0; step < steps_2d; step = step + 1) {
+        for (int step = 0; step < stab_steps; step = step + 1) {
             beta_model_2d.monte_carlo_step();
-            data_file_2d << beta << "," << beta_model_2d.calculate_energy() << "," << beta_model_2d.calculate_average_magnetization() << "\n";
         }
-    }
+
+        double tot_energy = 0.0;
+        double tot_mag = 0.0;
+        for (int i = 0; i < steps_2d; i = i+1) {
+            beta_model_2d.monte_carlo_step();
+            tot_energy = tot_energy + beta_model_2d.calculate_energy();
+            tot_mag = tot_mag + std::abs(beta_model_2d.calculate_average_magnetization());
+
+        }
+
+
+        data_file_2d << beta << "," << tot_energy/steps_2d << "," << tot_mag/steps_2d << "\n";
+
+    }    
     data_file_2d.close();
 
     return 0;
