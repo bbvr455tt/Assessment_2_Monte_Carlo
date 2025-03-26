@@ -16,7 +16,11 @@ private:
 public:
     vary_beta(int number_atoms, int num_steps, int num_configurations, const std::vector<double>& beta_values);
 
+<<<<<<< HEAD
     void run_all_betas(const std::string& filename);
+=======
+    void run_all_betas(const std::string& file_name);
+>>>>>>> 2d_model
 };
 
 
