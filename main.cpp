@@ -41,6 +41,7 @@ int main() {
 
 
     const int grid_dimensions = 100;
+    const int stab_steps = 2000
     const int steps_2d = 10000;
     
     std::ofstream data_file_2d("2d_vary_beta.csv");
@@ -50,10 +51,9 @@ int main() {
         model_2d beta_model_2d(grid_dimensions, beta);
         beta_model_2d.random_grid();
 
-        for (int step = 0; step < steps_2d; step = step + 1) {
+        for (int step = 0; step < stab_steps; step = step + 1) {
             beta_model_2d.monte_carlo_step();
-            data_file_2d << beta << "," << beta_model_2d.calculate_energy() << "," << beta_model_2d.calculate_average_magnetization() << "\n";
-        }
+            
     }
     data_file_2d.close();
 
