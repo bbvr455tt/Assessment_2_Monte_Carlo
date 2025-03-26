@@ -5,8 +5,8 @@
 
 vary_beta::vary_beta(int number_atoms, int num_steps, int num_configurations, const std::vector<double>& beta_values)
     : number_atoms(number_atoms),
-      beta_values(beta_values)
-      num_steps(num_steps)
+      beta_values(beta_values),
+      num_steps(num_steps),
       num_configurations(num_configurations) {}
 
 void vary_beta::run_all_betas(const std::string& filename) {
