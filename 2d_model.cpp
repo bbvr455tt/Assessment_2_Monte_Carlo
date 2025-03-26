@@ -54,7 +54,7 @@ void model_2d::monte_carlo_step() {
         }
     }
     if (to_flip) {
-        grid[x][y]= grid[x][y]*-1
+        grid[x][y]= grid[x][y]*-1;
     }
 
 }
