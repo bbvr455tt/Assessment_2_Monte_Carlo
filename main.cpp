@@ -41,7 +41,7 @@ int main() {
 
 
     const int grid_dimensions = 100;
-    const int stab_steps = 2000
+    const int stab_steps = 2000;
     const int steps_2d = 10000;
     
     std::ofstream data_file_2d("2d_vary_beta.csv");
@@ -55,8 +55,8 @@ int main() {
             beta_model_2d.monte_carlo_step();
         }
 
-        double tot_energy = 0.0
-        double tot_mag = 0.0
+        double tot_energy = 0.0;
+        double tot_mag = 0.0;
         for (int step = 0; i < steps_2d; i = i+1) {
             beta_model_2d.monte_carlo_step();
             tot_energy = tot_energy + beta_model_2d.calculate_energy()
