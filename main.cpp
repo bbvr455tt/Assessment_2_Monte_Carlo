@@ -37,6 +37,23 @@ int main() {
     vary_beta vary_beta(number_atoms, beta_values, num_steps, num_configurations);
     vary_beta.run_all_betas("1d_vary_beta");
 
+    const int grid_dimensions = 100;
+    const int steps_2d = 100;
+
+    std::ofstream data_file_2d("2d_vary_beta.csv");
+    data_file_2d << "beta,energy,magnetization\n";
+
+    for (double beta=0.05; beta <= 2.0; beta = beta + 0.05) {
+        model_2d beta_model_2d(grid_dimensions, beta);
+        beta_model_2d.random_grid();
+
+        for (int step = 0; step < steps_2d; step = step + 1) {
+            beta_model_2d.monte_carlo_step();
+            data_file_2d << beta << "," << beta_model_2d.calculate_energy() << "," << beta_model_2d.calculate_average_magnetization() << "\n";
+        }
+    }
+    data_file_2d.close();
+
     return 0;
  
 }
