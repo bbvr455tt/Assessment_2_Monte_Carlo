@@ -35,7 +35,7 @@ int main() {
     }
 
     vary_beta vary_beta(number_atoms, beta_values, num_steps, num_configurations);
-    vary_beta.run_all_betas("1d_vary_beta");
+    vary_beta.run_all_betas("1d_vary_beta.csv");
 
     const int grid_dimensions = 100;
     const int steps_2d = 100;

@@ -10,13 +10,13 @@ class vary_beta {
 private:
     int number_atoms;
     std::vector<double> beta_values;
-    int num_configurations
-    int num_steps
+    int num_configurations;
+    int num_steps;
 
 public:
     vary_beta(int number_atoms, const std::vector<double>& beta_values, int num_steps, int num_configurations);
 
-    void run_all_betas(const std::string& "1d_vary_beta");
+    void run_all_betas(const std::string& filename);
 };
 
 

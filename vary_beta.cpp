@@ -9,8 +9,8 @@ varybeta::varybeta(int number_atoms, int num_steps, int num_configurations, cons
       num_steps(num_steps)
       num_configurations(num_configurations) {}
 
-void vary_beta::run_all_betas(const std::string& "1d_vary_beta") {
-    std::ofstream data_file_2(vary_beta_1D);
+void vary_beta::run_all_betas(const std::string& filename) {
+    std::ofstream data_file_2(filename);
     data_file_2 << "beta,avg_energy,avg_magnetization\n";
     
     for (double beta : beta_values) {
@@ -28,7 +28,7 @@ void vary_beta::run_all_betas(const std::string& "1d_vary_beta") {
         double average_energy = total_energy / num_configurations;
         double average_magnetization = total_magnetization / num_configurations;
         
-        data_file_2 << beta << "," << avergae_energy << "," << average_magnetization << "\n";
+        data_file_2 << beta << "," << average_energy << "," << average_magnetization << "\n";
 
     }
     data_file_2.close()
