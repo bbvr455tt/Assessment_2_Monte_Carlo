@@ -39,6 +39,24 @@ void model_2d::monte_carlo_step() {
     int below = grid[(x+1) % size][y];
     int spin = grid[x][y];
     double energy_change = 2 * spin * (left + right + above + below);
+
+    bool to_flip = false;
+
+    if (energy_change < 0) {
+        to_flip = true ;
+    }
+    else {
+        double random_chance = (double)rand() / RAND_MAX;
+        double flip_chance = exp(-beta*energy_change);
+
+        if (random_chance < flip_chance) {
+            to_flip = true;
+        }
+    }
+    if (to_flip) {
+        grid[x][y]= grid[x][y]*-1
+    }
+
 }
 
 double model_2d::calculate_energy() const {
