@@ -3,7 +3,7 @@
 #include <iostream>
 #include <cmath>
 
-varybeta::varybeta(int number_atoms, int num_steps, int num_configurations, const std::vector<double>& beta_values)
+vary_beta::vary_beta(int number_atoms, int num_steps, int num_configurations, const std::vector<double>& beta_values)
     : number_atoms(number_atoms),
       beta_values(beta_values)
       num_steps(num_steps)
@@ -31,5 +31,5 @@ void vary_beta::run_all_betas(const std::string& filename) {
         data_file_2 << beta << "," << average_energy << "," << average_magnetization << "\n";
 
     }
-    data_file_2.close()
+    data_file_2.close();
 }

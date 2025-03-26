@@ -1,6 +1,7 @@
 #include "montecarlo.h"
 #include "combine.h"
-#include "vary_beta.h"      
+#include "vary_beta.h"  
+#include "2d_model"    
 #include <cstdlib>
 #include <fstream>       
 #include <time.h>
