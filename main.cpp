@@ -59,7 +59,7 @@ int main() {
         double tot_mag = 0.0;
         for (int i = 0; i < steps_2d; i = i+1) {
             beta_model_2d.monte_carlo_step();
-            tot_energy = tot_energy + beta_model_2d.calculate_energy()
+            tot_energy = tot_energy + beta_model_2d.calculate_energy();
             tot_mag = tot_mag + std::abs(model.calculate_average_magnetization());
 
         }
