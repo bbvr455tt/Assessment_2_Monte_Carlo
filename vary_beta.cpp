@@ -7,7 +7,7 @@ vary_beta::vary_beta(int number_atoms, int num_steps, int num_configurations, co
     : number_atoms(number_atoms),
       num_steps(num_steps),
       num_configurations(num_configurations),
-      beta_values(beta_values), {}
+      beta_values(beta_values) {}
 
 void vary_beta::run_all_betas(const std::string& filename) {
     std::ofstream data_file_2(filename);
