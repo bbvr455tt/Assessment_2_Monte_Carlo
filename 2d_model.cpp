@@ -2,6 +2,7 @@
 #include <fstream>
 #include <cmath>
 #include <cstdlib>
+#include <cassert>
 #include <ctime>
 #include <iostream>
 
@@ -120,7 +121,7 @@ int model_2d::get_spin(int row, int col) const {
     return grid[row][col];
 }
 
-void test_2x2_system() {
+void model_2d::test_2x2_system() {
     const int test_size = 2;
     model_2d test_model(test_size, 1.0);
     
