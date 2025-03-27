@@ -66,7 +66,7 @@ double model_2d::calculate_energy() const {
             energy = energy - (grid[row][col] * (grid[row][(col+1)%size] + grid[(row+1)%size][col] + grid[row][(col-1+size)%size] + grid[(row-1+size)%size][col]));
         }
     }
-    return energy;
+    return energy / 2.0;
 }
 
 double model_2d::calculate_average_magnetization() const {

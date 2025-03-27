@@ -39,14 +39,9 @@ int main() {
     vary_beta.run_all_betas("1d_vary_beta.csv");
 
     const int grid_dimensions = 100;
-<<<<<<< HEAD
-    const int steps_2d = 100;
-
-=======
     const int stab_steps = 2000;
     const int steps_2d = 10000;
     
->>>>>>> 2d_model
     std::ofstream data_file_2d("2d_vary_beta.csv");
     data_file_2d << "beta,energy,magnetization\n";
 
