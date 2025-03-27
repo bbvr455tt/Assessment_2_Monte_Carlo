@@ -2,15 +2,12 @@
 #include <fstream>
 #include <cmath>
 #include <cstdlib>
+#include <time.h>
 
 model_2d::model_2d(int grid_dimensions, double beta) 
-    : size(grid_dimensions), 
-      beta(beta)        
-{        
-    grid.resize(size);          
-    for (int i = 0; i < size; i=i+1) {
-        grid[i].resize(size, 1); 
-    }
+    : size(grid_dimensions), beta(beta)        {        
+    grid.resize(size, std::vector<int>(size, 1));
+    std::srand(std::time(0));          
 }
 
 void model_2d::random_grid() {
@@ -29,8 +26,8 @@ void model_2d::random_grid() {
 
 
 void model_2d::monte_carlo_step() {
-    int x = rand() % size;
-    int y = rand() % size;
+    int x = std::rand() % size;
+    int y = std::rand() % size;
 
     
     int left = grid[x][(y-1 + size) % size];
@@ -80,7 +77,7 @@ double model_2d::calculate_average_magnetization() const {
     }
  
     double overall_spins = size * size;
-    double average_magnetization = total_magnetization / overall_spins;
+    double average_magnetization = std::abs(total_magnetization) / overall_spins;
     
     return average_magnetization;
 }
