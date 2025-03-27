@@ -2,7 +2,7 @@
 #include <fstream>
 #include <cmath>
 #include <cstdlib>
-#include <time.h>
+#include <ctime>
 
 model_2d::model_2d(int grid_dimensions, double beta) 
     : size(grid_dimensions), beta(beta)        {        
