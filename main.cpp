@@ -10,9 +10,7 @@
 int main() {
 
     std::cout << "2x2 test" << std::endl;
-    test_2x2_system();
-    model_2d test_parameters(1, 1.0);
-    test_parameters.test_2x2_system();
+    model_2d::test_2x2_system();
 
     srand(time(0));
 

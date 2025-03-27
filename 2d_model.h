@@ -24,7 +24,7 @@ public:
 
     void set_spin(int row, int col, int value);
     int get_spin(int row, int col) const;
-    void test_2x2_system();
+    static void test_2x2_system();
 
 };
     

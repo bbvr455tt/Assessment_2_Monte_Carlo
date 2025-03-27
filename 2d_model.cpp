@@ -112,6 +112,14 @@ void model_2d::simulate_grid(int num_steps, const std::string& file_name) {
     file.close();
 }
 
+void model_2d::set_spin(int row, int col, int value) {
+    grid[row][col] = value;
+}
+
+int model_2d::get_spin(int row, int col) const {
+    return grid[row][col];
+}
+
 void test_2x2_system() {
     const int test_size = 2;
     model_2d test_model(test_size, 1.0);
@@ -119,10 +127,10 @@ void test_2x2_system() {
     
     for (int config = 0; config < 16; config = config + 1) {
         
-        test_model.grid[0][0] = (config & 1) ? 1 : -1;
-        test_model.grid[0][1] = (config & 2) ? 1 : -1;
-        test_model.grid[1][0] = (config & 4) ? 1 : -1;
-        test_model.grid[1][1] = (config & 8) ? 1 : -1;
+        test_model.set_spin(0, 0, (config & 1) ? 1 : -1);
+        test_model.set_spin(0, 1, (config & 2) ? 1 : -1);
+        test_model.set_spin(1, 0, (config & 4) ? 1 : -1);
+        test_model.set_spin(1, 1, (config & 8) ? 1 : -1);
         
         double energy = test_model.calculate_energy();
         double mag = test_model.calculate_average_magnetization();
@@ -132,11 +140,7 @@ void test_2x2_system() {
     }
 }
 
-void model_2d::set_spin(int row, int col, int value) {
-    grid[row][col] = value;
-}
 
-int model_2d::get_spin(int row, int col) const {
-    return grid[row][col];
-}
+
+
 
