@@ -63,8 +63,23 @@ double model_2d::calculate_energy() const {
     double energy = 0.0;
     for (int row = 0; row < size; row = row + 1) {
         for (int col = 0; col < size; col = col + 1) {
-            energy = energy - (grid[row][col] * ((grid[row][(col+1)%size] + grid[(row+1)%size][col] + grid[row][(col-1+size)%size] + grid[(row-1+size)%size][col])));
+            const int spin_state = grid[row][col]
+            energy = energy - (spin_state * ((grid[row][(col+1)%size] + grid[(row+1)%size][col])));
         }
+        for (int row = 0; row < size - 1; row = row + 1) {
+            const int spin_state = grid[row][size - 1]; 
+            energy = energy - (spin_state * (grid[row][0] + grid[row + 1][size - 1])); 
+        }
+        
+        for (int col = 0; col < size - 1; col = col + 1) {
+            const int spin_state = grid[size - 1][col];
+            energy = energy - (spin_state * (grid[size - 1][col + 1] + grid[0][col]));
+        }
+        
+        
+        const int final_spin = grid[size - 1][size - 1];
+        energy = enrgy - (final_spin * (grid[size - 1][0] + grid[0][size - 1]));
+
     }
     return energy;
 }
