@@ -22,8 +22,8 @@ public:
 
     void simulate_grid(int num_steps, const std::string& file_name);
 
-    void set_spin(int x, int y, int value);
-    int get_spin(int x, int y) const;
+    void set_spin(int row, int col, int value);
+    int get_spin(int row, int col) const;
     void test_2x2_system();
 
 };
