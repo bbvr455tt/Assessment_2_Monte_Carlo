@@ -63,7 +63,7 @@ double model_2d::calculate_energy() const {
     double energy = 0.0;
     for (int row = 0; row < size; row = row + 1) {
         for (int col = 0; col < size; col = col + 1) {
-            energy = energy - (grid[row][col] * (grid[row][(col+1)%size] + grid[(row+1)%size][col]));
+            energy = energy - (grid[row][col] * (grid[row][(col+1)%size] + grid[(row+1)%size][col] + grid[row][(col-1+size)%size] + grid[(row-1+size)%size][col]));
         }
     }
     return energy;
