@@ -1,7 +1,7 @@
 #ifndef MONTECARLO_H
 #define MONTECARLO_H
 #include "combine.h"
-#include "atom.h"
+#include "atom.h" // Has necesarry header files and guards
 
 class Montecarlo {
 
@@ -17,5 +17,8 @@ private:
     Combine combine; 
     double beta;
 };
-
+// Once again, the object defined (Montecarlo) and its useful
+// functions are defined publicly to be used throughout the code, and the
+// combine and beta variables are used only within this code, so
+// are private.
 #endif
