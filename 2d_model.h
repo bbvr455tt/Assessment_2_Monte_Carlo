@@ -2,7 +2,6 @@
 #define TWOD_MODEL_H
 #include "montecarlo.h"
 #include "vary_beta.h"
-#include "combine.h"
 #include <vector>
 #include <string>
 
@@ -22,6 +21,10 @@ public:
     double calculate_energy() const;
 
     void simulate_grid(int num_steps, const std::string& file_name);
+
+    void set_spin(int x, int y, int value);
+    int get_spin(int x, int y) const;
+    void test_2x2_system();
 
 };
     

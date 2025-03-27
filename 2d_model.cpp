@@ -127,7 +127,16 @@ void test_2x2_system() {
         double energy = test_model.calculate_energy();
         double mag = test_model.calculate_average_magnetization();
         
-        std::cout << "Config " << config << ": Energy = " << energy 
+        std::cout << "Config " << config << ", Energy " << energy 
                   << ", Magnetization = " << mag << std::endl;
     }
 }
+
+void model_2d::set_spin(int row, int col, int value) {
+    grid[row][col] = value;
+}
+
+int model_2d::get_spin(int row, int col) const {
+    return grid[row][col];
+}
+
