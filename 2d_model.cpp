@@ -58,10 +58,9 @@ double model_2d::calculate_average_magnetization() const {
         }
     }
  
-    double overall_spins = size * size;
-    double average_magnetization = std::abs(total_magnetization) / overall_spins;
+    double total_magnetization_2 = std::abs(total_magnetization);
     
-    return average_magnetization;
+    return total_magnetization_2;
 }
 
 void model_2d::simulate_grid(int num_steps, const std::string& file_name) {
