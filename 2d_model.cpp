@@ -3,6 +3,7 @@
 #include <cmath>
 #include <cstdlib>
 #include <ctime>
+#include <iostream>
 
 model_2d::model_2d(int grid_dimensions, double beta) 
     : size(grid_dimensions), beta(beta)        {        
