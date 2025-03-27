@@ -8,6 +8,9 @@
 #include <iostream>      
 
 int main() {
+
+    std::cout << "Running 2x2 test" << std::endl;
+    test_2x2_system();
     
     srand(time(0));
 
