@@ -93,7 +93,8 @@ double model_2d::calculate_average_magnetization() const {
         }
     }
  
-    double average_magnetization = std::abs(total_magnetization);
+    double overall_spins = size * size;
+    double average_magnetization = std::abs(total_magnetization)     / overall_spins;
     
     return average_magnetization;
 }
