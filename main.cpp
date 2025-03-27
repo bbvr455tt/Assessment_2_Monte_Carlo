@@ -41,7 +41,7 @@ int main() {
 
 
     const int grid_dimensions = 100;
-    const int stab_steps = 2000;
+    const int stab_steps = 20000;
     const int steps_2d = 10000;
     
     std::ofstream data_file_2d("2d_vary_beta.csv");
@@ -65,7 +65,7 @@ int main() {
         }
 
 
-        data_file_2d << beta << "," << tot_energy/steps_2d << "," << tot_mag/steps_2d << "\n";
+        data_file_2d << beta << "," << tot_energy/steps_2d << "," << std::abs(tot_mag/steps_2d) << "\n";
 
     }    
     data_file_2d.close();
