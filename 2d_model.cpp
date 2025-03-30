@@ -1,6 +1,7 @@
 #include "2d_model.h"
 #include <fstream>
 #include <cmath>
+#include <iostream>
 #include <cstdlib> // Includes header file and required libraries.
 
 model_2d::model_2d(int grid_dimensions, double beta) 
